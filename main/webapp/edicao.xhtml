@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+<h:head><title>Cadastro de Locais</title></h:head>
+	<h:body>
+		<h:form id="formulario">
+		<p:messages id="messages" closable="true">
+		<p:autoUpdate/>
+		</p:messages>
+			<p:panel header="Edição de Locais">
+				<h:inputHidden value="#{agendaBean.agenda.id}"/>
+				<p:panelGrid columns="2">
+				<p:outputLabel value="Destino:" for="destino"/>
+				<h:panelGroup>
+				<p:inputText value="#{agendaBean.agenda.destino}"  id="destino" required="true" requiredMessage="O Destino é obrigatório"/>
+				<p:message for="destino"/>
+				</h:panelGroup>
+				
+				<p:outputLabel value="Data:" for="data"/>
+				<h:panelGroup>
+				<p:calendar value="#{agendaBean.agenda.data}"  id="data" required="true" requiredMessage="A Data é obrigatória"/>
+				<p:message for="data"/>
+				</h:panelGroup>
+				
+				<p:outputLabel value="Valor:"/>
+				<h:panelGroup>
+				<p:inputText value="#{agendaBean.agenda.valor}"  id="valor" required="true" requiredMessage="O Valor é obrigatório"/>
+				<p:message for="valor"/>
+				</h:panelGroup>
+				
+				
+				<p:commandButton value="Editar" action="#{agendaBean.editar}" update="formulario"/>
+					<p:link value="Listar" outcome="listagem"/>
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+	</h:body>
+
+</html>
